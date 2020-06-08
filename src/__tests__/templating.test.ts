@@ -891,7 +891,8 @@ Morbi dignissim consequat ex, non finibus est faucibus sodales. Integer sed just
         expect(result).toMatchSnapshot();
       });
 
-      it('83 LINK inside FOR loop: regression test for issue #83', async () => {
+      it('regression test for issue 83 and 133: LINK inside FOR loop', async () => {
+        // Also related to issue #133
         const template = await fs.promises.readFile(
           path.join(__dirname, 'fixtures', 'link-regression-issue-83.docx')
         );
@@ -900,13 +901,9 @@ Morbi dignissim consequat ex, non finibus est faucibus sodales. Integer sed just
           noSandbox,
           template,
           data: {
-            companies: [
-              {
-                name: 'FIRST',
-              },
-              {
-                name: 'SECOND',
-              },
+            links: [
+              { url: 'https://www.google.com/', name: 'Google' },
+              { url: 'https://www.youtube.com/', name: 'Youtube' },
             ],
           },
         };
