@@ -309,7 +309,7 @@ export async function walkTemplate(
       }
 
       // Save latest `w:rPr` node that was visited (for LINK properties)
-      if (!nodeIn._fTextNode && nodeIn._tag === 'w:rPr') {
+      if (!nodeOut._fTextNode && nodeOut._tag === 'w:rPr') {
         ctx.textRunPropsNode = nodeOut;
       }
       if (!nodeIn._fTextNode && nodeIn._tag === 'w:r') {
